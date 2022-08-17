@@ -80,12 +80,12 @@ public class Formulario {
 
     @Override
     public String toString() {
-        return "Nome Completo='" + fullName + '\'' +
-                ", Telefone='" + tel + '\'' +
-                ", E-mail='" + email + '\'' +
-                ", Ingresso na lista de email=" + signEmail +
-                ", Sexo=" + (isMale ? "Mascullino" : "Feminino") +
-                ", Cidade='" + city + '\'' +
-                ", Estado='" + state + '\'';
+        return "Nome Completo: '" + fullName + '\'' +
+                ", Telefone: '" + tel + '\'' +
+                ", E-mail: '" + email + '\'' +
+                ", Ingresso na lista de email: " + signEmail +
+                ", Sexo: " + (isMale ? "Mascullino" : "Feminino") +
+                ", Cidade: '" + city + '\'' +
+                ", Estado: '" + state + '\'';
     }
 }

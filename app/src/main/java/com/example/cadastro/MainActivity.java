@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activityMainBinding.getRoot());
 
         form = new Formulario();
-        form.setSignEmail(false);
-
-        activityMainBinding.nameEt.addTextChangedListener(new TextWatcher() {
+        activityMainBinding.saveBt.setOnClickListener(view -> this.submit());
+        activityMainBinding.cleanBt.setOnClickListener(view -> this.clear());
+        /*activityMainBinding.nameEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*activityMainBinding.listEmailCb.setOnClickListener(view -> {
+        *//*activityMainBinding.listEmailCb.setOnClickListener(view -> {
             form.setSignEmail(((CheckBox) view).isChecked());
-        });*/
+        });*//*
 
         activityMainBinding.cidadeEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -93,8 +93,30 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 form.setCity(editable.toString());
             }
-        });
+        });*/
 
-        
+
+    }
+
+    private void submit(){
+        form.setFullName(activityMainBinding.nameEt.getText().toString());
+        form.setTel(activityMainBinding.telEt.getText().toString());
+        form.setEmail(activityMainBinding.emailEt.getText().toString());
+        form.setSignEmail(activityMainBinding.listEmailCb.isChecked());
+        form.setMale(activityMainBinding.mascRb.isChecked());
+        form.setCity(activityMainBinding.cidadeEt.getText().toString());
+        form.setState(activityMainBinding.estadoSp.getSelectedItem().toString());
+        Toast.makeText(this, form.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void clear(){
+        activityMainBinding.nameEt.getText().clear();
+        activityMainBinding.telEt.getText().clear();
+        activityMainBinding.emailEt.getText().clear();
+        activityMainBinding.listEmailCb.setChecked(false);
+        activityMainBinding.mascRb.setChecked(false);
+        activityMainBinding.femRb.setChecked(false);
+        activityMainBinding.cidadeEt.getText().clear();
+        activityMainBinding.estadoSp.setSelection(0);
     }
 }
